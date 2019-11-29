@@ -1,0 +1,107 @@
+// colors
+$red: red;
+$purple: purple;
+$white: white;
+$grey: grey;
+$black: black;
+
+
+@font-face {
+  font-family: my-font;
+  src: url(../fonts/VarelaRound-Regular.ttf) format('truetype');
+}
+
+body {
+  font-size: 12px; font-family: my-font;
+}
+
+// Media Queries
+@mixin phone-view {
+  @media only screen and (max-width: 767px){
+      @content;
+  }
+}
+
+@mixin tablet-view {
+  @media only screen and (min-width: 768px) and (max-width: 1023px){
+      @content;
+  }
+}
+
+@mixin desktop-view {
+  @media only screen and (min-width: 1024px){
+      @content;
+  }
+}
+
+// MOBILE VIEW
+@include phone-view {
+  .main-container {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 0px 30px 0px 30px;
+      input {
+        border:none; border-bottom: 1px solid $grey;
+      }
+      .card {
+        font-size: 10px;
+        &:hover{ 
+          border: none; background: linear-gradient(20deg, rgba(255,255,255,1) 0%, rgba(255,206,204,1) 2%, rgba(255,100,100,0.6671043417366946) 100%);; color: $white;
+        }
+      }
+  }
+  .function-btn {
+     padding: 0px 4px 0px 4px; background-color: transparent; transition: all .35s ease-out;
+      img {
+        width: 12px; height: 12px;
+      }
+      &:hover {
+      background-color: $white; transform: scale(1.5);
+    }
+  }
+}
+
+// TABLET VIEW
+@include tablet-view {
+  .main-container {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 0px 100px 0px 100px;
+      input {
+        border:none; border-bottom: 1px solid $grey;
+      }
+      .card {
+        &:hover{ 
+          border: none; background: linear-gradient(20deg, rgba(255,255,255,1) 0%, rgba(255,206,204,1) 2%, rgba(255,100,100,0.6671043417366946) 100%);; color: $white;
+        }
+      }
+  }
+  .function-btn {
+     padding: 2px; background-color: transparent; transition: all .35s ease-out;
+     img {
+      width: 18px; height: 18px;
+    }
+      &:hover {
+      background-color: $white; transform: scale(1.5);
+    }
+  }
+}
+
+// DESKTOP VIEW
+@include desktop-view {
+  .main-container {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 0px 200px 0px 200px;
+      input {
+        border:none; border-bottom: 1px solid $grey;
+      }
+      .card {
+        &:hover{ 
+          border: none; background: linear-gradient(20deg, rgba(255,255,255,1) 0%, rgba(255,206,204,1) 2%, rgba(255,100,100,0.6671043417366946) 100%);; color: $white;
+        }
+      }
+  }
+
+  .function-btn {
+    padding: 2px; background-color: transparent; transition: all .35s ease-out;
+     &:hover {
+     background-color: $white; transform: scale(1.5);
+   }
+ }
+}
+
